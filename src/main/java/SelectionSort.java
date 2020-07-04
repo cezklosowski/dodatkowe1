@@ -8,17 +8,21 @@ public class SelectionSort {
     }
 
     public int[] selectionSort() {
-        // na razie nie działa, nie wiem czemu
+
+
         int temp;
+        int localMinimum;
         for (int j = 0; j < tab.length; j++) {
             int indexOfMinimum = j;
+            localMinimum = tab[j];
             for (int i = j+1; i < tab.length; i++) {
-                if (tab[j] > tab[i]) {
+                if (localMinimum > tab[i]) {
+                    localMinimum = tab[i];
                     indexOfMinimum = i;
                 }
             }
             temp = tab[j];
-            tab[j] = tab[indexOfMinimum];
+            tab[j] = localMinimum;
             tab[indexOfMinimum] = temp;
         }
         return tab;
